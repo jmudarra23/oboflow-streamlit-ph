@@ -23,7 +23,7 @@ def get_stats(date, labeler_code, api_key, subdomain):
         })
         if response.status_code == 200:
             data = response.json()["data"]
-            return sum(entry["boxesDrawn"] for entry in data), sum(entry["imagesLabeled"] for entry in data)
+            return sum(entry["boxesDrawn"] for entry in data), sum(entry["boxesAdded"] for entry in data)
         else:
             st.error("Something is wrong... call Jesús")
             return 0, 0
